@@ -23,7 +23,7 @@
                     <input type="text" class="form-control" placeholder="<fmt:message key="이름" bundle="${message}" />" name="name" maxlenth="20">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" value="${applicationScope.fileName}" placeholder="<fmt:message key="프로필사진" bundle="${message}" />" name="profile" maxlenth="20">
+                    <input type="text" class="form-control" value="${requestScope.fileName}" placeholder="<fmt:message key="프로필사진" bundle="${message}" />" name="profile" maxlenth="20">
                 </div>
                 <input type="submit" class="btn btn-primary form-control"<fmt:message key="로그인" bundle="${message}"/>>
             </form>

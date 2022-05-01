@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 
             if (contentDisposition.contains("filename=")) {
                 String fileName = extractFileName(contentDisposition);
-                request.getServletContext().setAttribute("fileName", fileName);
+                request.setAttribute("fileName", fileName);
 
                 if (part.getSize() > 0) {
                     part.write(UPLOAD_DIR + File.separator + fileName);

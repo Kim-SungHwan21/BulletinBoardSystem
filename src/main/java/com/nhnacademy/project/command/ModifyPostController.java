@@ -17,18 +17,18 @@ public class ModifyPostController implements Command {
         PostRepository postRepository =
             (PostRepository) request.getServletContext().getAttribute("postDataLoad");
 
-        long id = Long.parseLong(request.getParameter("id"));
-        String writerUserId = request.getParameter("writerUserId");
+        long id = postRepository.getPosts().size()+1;
+        String writerUserId = (String) request.getSession().getAttribute("writerUserId");
         String title = request.getParameter("title");
-        LocalDateTime writeTime = LocalDateTime.parse(request.getParameter("writeTime"));
+        LocalDateTime writeTime = LocalDateTime.now();
         int viewCount = Integer.parseInt(request.getParameter("viewCount"));
         String content = request.getParameter("content");
 
         Post post = new ConcretePost(id, writerUserId, title, writeTime, viewCount, content);
 
-        postRepository.register(post);
+        postRepository.modify(post);
         request.getServletContext().setAttribute("postDataload", postRepository);
 
-        return "/modifyPost.jsp";
+        return "/postPage.jsp";
     }
 }
