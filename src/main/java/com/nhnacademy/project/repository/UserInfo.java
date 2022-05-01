@@ -1,43 +1,55 @@
 package com.nhnacademy.project.repository;
 
 public class UserInfo implements User{
+    private String id;
+    private String password;
+    private String name;
+    private String profileFileName;
+
+    public UserInfo(String id, String password, String name, String profileFileName) {
+        this.id = id;
+        this.password = password;
+        this.name = name;
+        this.profileFileName = profileFileName;
+    }
+
     @Override
     public String getId() {
-        return null;
+        return this.id;
     }
 
     @Override
     public void setId(String id) {
-
+        this.id = id;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return this.password;
     }
 
     @Override
     public void setPassword(String password) {
-
+        this.password = password;
     }
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public void setName(String name) {
-
+        this.name = name;
     }
 
     @Override
     public String getProfileFileName() {
-        return null;
+        return this.profileFileName;
     }
 
     @Override
     public void setProfileFileName(String profileFileName) {
-
+        this.profileFileName = profileFileName;
     }
 }
