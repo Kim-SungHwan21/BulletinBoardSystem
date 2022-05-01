@@ -21,10 +21,10 @@ public class RegisterPostController implements Command {
         PostRepository postRepository =
             (PostRepository) request.getServletContext().getAttribute("postDataLoad");
 
-        long id = Long.parseLong(request.getParameter("id"));
-        String writerUserId = request.getParameter("writerUserId");
+        long id = postRepository.getPosts().size()+1;
+        String writerUserId = (String) request.getSession().getAttribute("writerUserId");
         String title = request.getParameter("title");
-        LocalDateTime writeTime = LocalDateTime.parse(request.getParameter("writeTime"));
+        LocalDateTime writeTime = LocalDateTime.now();
         int viewCount = Integer.parseInt(request.getParameter("viewCount"));
         String content = request.getParameter("content");
 
@@ -33,6 +33,6 @@ public class RegisterPostController implements Command {
         postRepository.register(post);
         request.getServletContext().setAttribute("postDataload", postRepository);
 
-        return "/registerPost.jsp";
+        return "/postPage.jsp";
     }
 }

@@ -1,5 +1,6 @@
 package com.nhnacademy.project.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface PostRepository {
@@ -9,4 +10,5 @@ public interface PostRepository {
 
     Post getPost(long id);
     List<Post> getPosts();
+    LocalDateTime getWriteTime();
 }

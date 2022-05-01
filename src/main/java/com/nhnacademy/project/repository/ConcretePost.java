@@ -63,7 +63,7 @@ public class ConcretePost implements Post {
 
     @Override
     public LocalDateTime getWriteTime() {
-        return this.writeTime;
+        return this.writeTime = LocalDateTime.now();
     }
 
     @Override

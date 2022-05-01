@@ -1,5 +1,6 @@
 package com.nhnacademy.project.repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Map;
 
 public class PostDataLoad implements PostRepository {
     Map<Long, Post> posts = new HashMap<>();
+    private LocalDateTime writeTime;
 
     @Override
     public long register(Post post) {
@@ -33,4 +35,10 @@ public class PostDataLoad implements PostRepository {
     public List<Post> getPosts() {
         return new ArrayList<>(posts.values());
     }
+
+    @Override
+    public LocalDateTime getWriteTime() {
+        return this.writeTime = LocalDateTime.now();
+    }
+
 }
